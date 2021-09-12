@@ -19,7 +19,7 @@ client.on("message", msg => {
         let command = args.shift().toLowerCase();
 
         if (command === "_stats") {
-            axios.request(query).then(function (response) {
+            axios.request(query(args)).then(function (response) {
                 let newEmbed = embed1(response.data.br, args, msg);
                 msg.reply({ embeds: [newEmbed] });
             }).catch(function (error) {
